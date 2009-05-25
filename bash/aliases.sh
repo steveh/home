@@ -1,0 +1,73 @@
+# Useful default
+alias ps="ps aux"
+alias grep="grep --color=auto"
+
+# Shortcuts
+alias cd..="cd .."
+alias ..="cd .."
+alias ...="cd ../.."
+alias ....="cd ../../.."
+#alias c="clear"
+#alias s="screen -Rd"
+#alias l="less"
+#alias m="less"
+#alias x="clear && exit"
+#alias more="less"
+alias ll="ls -l"
+alias la="ls -A"
+alias dir="ls -C"
+alias root="sudo su -"
+
+# Specific functions
+alias dum="du -h --max-depth=1"
+alias stats="cut -f1 -d\" \" ~/.bash_history | sort | uniq -c | sort -nr | head -n 30"
+
+# Common misspellings
+alias mroe="more"
+alias pdw="pwd"
+alias sl="ls"
+
+# CVS
+alias cvsup="cvs -q update -dPR"
+alias cvst="cvs -qn update"
+alias cvsdi="cvs -qn update | cut -c3- | xargs cvs -qn diff -w"
+alias cvsentries="find . -name Entries -print0 | xargs -0 grep -l CVS"
+alias cvsadd="cvs -qn update | grep ^? | cut -c3- | xargs cvs add"
+
+# Services
+function start {
+	sudo /etc/init.d/$1 start
+}
+
+function stop {
+	sudo /etc/init.d/$1 stop
+}
+
+function restart {
+	sudo /etc/init.d/$1 restart
+}
+
+# Search for processes
+function psgrep {
+	ps aux | grep $1 | grep -v grep
+}
+
+# SQL dump
+function mydump {
+	mysqldump -uroot -p --opt $1 | bzip2 > $1.sql.bz2
+}
+
+# Clean mac files
+function mac {
+	for i in `find . -regex ".*\._.*"`; do rm $i; echo "rm $i"; done
+}
+
+# Compress the cd, ls -l series of commands.
+alias lc="cl"
+function cl () {
+	if [ $# = 0 ]; then
+		cd && ll
+	else
+		cd "$*" && ll
+ 	fi
+}
