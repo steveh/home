@@ -3,3 +3,8 @@ bin/*
 hosts
 prog/*
 ssh/*
+.DS_Store
+GnuPG
+gnupg2
+fish/host/*
+fish/fish_history*

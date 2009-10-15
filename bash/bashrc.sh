@@ -52,6 +52,8 @@ export VISUAL=vim
 #export PAGER=less
 #export LESS="-emR"
 
+export PS1='\u@\h:\W\$ '
+
 
 # check the window size after each command and, if necessary, update the values of LINES and COLUMNS.
 shopt -s checkwinsize

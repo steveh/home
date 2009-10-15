@@ -7,7 +7,7 @@ alias cd..="cd .."
 alias ..="cd .."
 alias ...="cd ../.."
 alias ....="cd ../../.."
-#alias c="clear"
+alias c="clear"
 #alias s="screen -Rd"
 #alias l="less"
 #alias m="less"
@@ -20,7 +20,7 @@ alias root="sudo su -"
 
 # Specific functions
 alias dum="du -h --max-depth=1"
-alias stats="cut -f1 -d\" \" ~/.bash_history | sort | uniq -c | sort -nr | head -n 30"
+alias stats="cut -f1 -d\" \" ~/.bash_history | sort | uniq -c | sort -nr | head -n 50"
 
 # Common misspellings
 alias mroe="more"
@@ -33,6 +33,41 @@ alias cvst="cvs -qn update"
 alias cvsdi="cvs -qn update | cut -c3- | xargs cvs -qn diff -w"
 alias cvsentries="find . -name Entries -print0 | xargs -0 grep -l CVS"
 alias cvsadd="cvs -qn update | grep ^? | cut -c3- | xargs cvs add"
+
+# SVN
+alias ss="svn status"
+alias sd="svn diff"
+
+# Rake
+alias ras="rake spec"
+alias raf="rake features"
+alias rasf="rake spec features"
+alias rar="rake routes"
+alias rat="rake -T"
+alias rdbm="rake db:migrate"
+
+# Rails
+alias sc="ruby script/console"
+alias scpr="RAILS_ENV=production ruby script/console"
+
+# Git
+alias gc="git commit"
+alias gca="git commit -a"
+alias ga="git add"
+alias gs="git status"
+alias gd="git diff"
+alias gp="git push"
+alias gpo="git push origin"
+alias gpom="git push origin master"
+alias gu="git pull"
+alias guo="git pull origin"
+alias guom="git pull origin master"
+
+# Capistrano
+alias cpd="cap deploy"
+
+# Misc
+alias sshsync="rsync -vrlxhz --progress -e ssh"
 
 # Services
 function start {
